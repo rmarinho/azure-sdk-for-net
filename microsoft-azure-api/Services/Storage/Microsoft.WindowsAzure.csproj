@@ -1,98 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Copyright 2012 Microsoft Corporation
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-      http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C6F30C10-E1C2-4327-BB6B-3160B479CCA1}</ProjectGuid>
+    <ProjectGuid>{4731D4E0-AE2E-4F79-A925-09240DA59387}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Microsoft.WindowsAzure</RootNamespace>
-    <AssemblyName>Microsoft.WindowsAzure.StorageClient</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <AssemblyName>Microsoft.WindowsAzure</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;UNSIGNED</DefineConstants>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Microsoft.WindowsAzure.StorageClient.XML</DocumentationFile>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
-    <CodeAnalysisRules>
-    </CodeAnalysisRules>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.Services.Client">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="CloudStorageAccount.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MutableStorageCredentials.cs" />
     <Compile Include="SharedAccessSignatureHelper.cs" />
-    <Compile Include="SR.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SR.resx</DependentUpon>
-    </Compile>
+    <Compile Include="StorageCredentials.cs" />
+    <Compile Include="StorageCredentialsAccountAndKey.cs" />
+    <Compile Include="StorageCredentialsAnonymous.cs" />
+    <Compile Include="StorageCredentialsSharedAccessSignature.cs" />
     <Compile Include="StorageClient\AccessCondition.cs" />
     <Compile Include="StorageClient\BlobAttributes.cs" />
     <Compile Include="StorageClient\BlobContainerAttributes.cs" />
@@ -132,6 +82,38 @@
     <Compile Include="StorageClient\PageRange.cs" />
     <Compile Include="StorageClient\ParallelUpload.cs" />
     <Compile Include="StorageClient\ProtocolHelper.cs" />
+    <Compile Include="StorageClient\QueueAttributes.cs" />
+    <Compile Include="StorageClient\QueueErrorCodeStrings.cs" />
+    <Compile Include="StorageClient\QueueListingDetails.cs" />
+    <Compile Include="StorageClient\RequestWithRetry.cs" />
+    <Compile Include="StorageClient\ResponseReceivedEventArgs.cs" />
+    <Compile Include="StorageClient\ResultContinuation.cs" />
+    <Compile Include="StorageClient\ResultPagination.cs" />
+    <Compile Include="StorageClient\ResultSegment.cs" />
+    <Compile Include="StorageClient\RetryPolicies.cs" />
+    <Compile Include="StorageClient\RetryPolicy.cs" />
+    <Compile Include="StorageClient\SharedAccessPermissions.cs" />
+    <Compile Include="StorageClient\SharedAccessPolicies.cs" />
+    <Compile Include="StorageClient\SharedAccessPolicy.cs" />
+    <Compile Include="StorageClient\ShouldRetry.cs" />
+    <Compile Include="StorageClient\SmallBlockMemoryStream.cs" />
+    <Compile Include="StorageClient\StorageClientException.cs" />
+    <Compile Include="StorageClient\StorageErrorCode.cs" />
+    <Compile Include="StorageClient\StorageErrorCodeStrings.cs" />
+    <Compile Include="StorageClient\StorageException.cs" />
+    <Compile Include="StorageClient\StorageExceptionExtensions.cs" />
+    <Compile Include="StorageClient\StorageExtendedErrorInformation.cs" />
+    <Compile Include="StorageClient\StorageServerException.cs" />
+    <Compile Include="StorageClient\StreamUtilities.cs" />
+    <Compile Include="StorageClient\TableErrorCodeStrings.cs" />
+    <Compile Include="StorageClient\TableServiceContext.cs" />
+    <Compile Include="StorageClient\TableServiceEntity.cs" />
+    <Compile Include="StorageClient\TableServiceExtensionMethods.cs" />
+    <Compile Include="StorageClient\TableServiceTable.cs" />
+    <Compile Include="StorageClient\TableServiceUtilities.cs" />
+    <Compile Include="StorageClient\TaskImplHelper.cs" />
+    <Compile Include="StorageClient\TraceHelper.cs" />
+    <Compile Include="StorageClient\Utilities.cs" />
     <Compile Include="StorageClient\Protocol\AccessPolicyResponse.cs" />
     <Compile Include="StorageClient\Protocol\BlobContainerEntry.cs" />
     <Compile Include="StorageClient\Protocol\BlobEntry.cs" />
@@ -183,36 +165,6 @@
     <Compile Include="StorageClient\Protocol\TableRequest.cs" />
     <Compile Include="StorageClient\Protocol\TableResponse.cs" />
     <Compile Include="StorageClient\Protocol\UriQueryBuilder.cs" />
-    <Compile Include="StorageClient\QueueAttributes.cs" />
-    <Compile Include="StorageClient\QueueErrorCodeStrings.cs" />
-    <Compile Include="StorageClient\QueueListingDetails.cs" />
-    <Compile Include="StorageClient\RequestWithRetry.cs" />
-    <Compile Include="StorageClient\ResponseReceivedEventArgs.cs" />
-    <Compile Include="StorageClient\ResultContinuation.cs" />
-    <Compile Include="StorageClient\ResultPagination.cs" />
-    <Compile Include="StorageClient\ResultSegment.cs" />
-    <Compile Include="StorageClient\RetryPolicies.cs" />
-    <Compile Include="StorageClient\RetryPolicy.cs" />
-    <Compile Include="StorageClient\SharedAccessPermissions.cs" />
-    <Compile Include="StorageClient\SharedAccessPolicies.cs" />
-    <Compile Include="StorageClient\SharedAccessPolicy.cs" />
-    <Compile Include="StorageClient\ShouldRetry.cs" />
-    <Compile Include="StorageClient\SmallBlockMemoryStream.cs" />
-    <Compile Include="StorageClient\StorageClientException.cs" />
-    <Compile Include="StorageClient\StorageErrorCode.cs" />
-    <Compile Include="StorageClient\StorageErrorCodeStrings.cs" />
-    <Compile Include="StorageClient\StorageException.cs" />
-    <Compile Include="StorageClient\StorageExceptionExtensions.cs" />
-    <Compile Include="StorageClient\StorageExtendedErrorInformation.cs" />
-    <Compile Include="StorageClient\StorageServerException.cs" />
-    <Compile Include="StorageClient\StreamUtilities.cs" />
-    <Compile Include="StorageClient\TableErrorCodeStrings.cs" />
-    <Compile Include="StorageClient\TableServiceContext.cs" />
-    <Compile Include="StorageClient\TableServiceEntity.cs" />
-    <Compile Include="StorageClient\TableServiceExtensionMethods.cs" />
-    <Compile Include="StorageClient\TableServiceTable.cs" />
-    <Compile Include="StorageClient\TableServiceUtilities.cs" />
-    <Compile Include="StorageClient\TaskImplHelper.cs" />
     <Compile Include="StorageClient\Tasks\APMTask.cs" />
     <Compile Include="StorageClient\Tasks\AsyncResultExtensions.cs" />
     <Compile Include="StorageClient\Tasks\DelayTask.cs" />
@@ -227,40 +179,17 @@
     <Compile Include="StorageClient\Tasks\TaskAsyncResult.cs" />
     <Compile Include="StorageClient\Tasks\TimeoutHelper.cs" />
     <Compile Include="StorageClient\Tasks\WebRequestExtensions.cs" />
-    <Compile Include="StorageClient\TraceHelper.cs" />
-    <Compile Include="StorageClient\Utilities.cs" />
-    <Compile Include="StorageCredentials.cs" />
-    <Compile Include="StorageCredentialsAccountAndKey.cs" />
-    <Compile Include="StorageCredentialsAnonymous.cs" />
-    <Compile Include="StorageCredentialsSharedAccessSignature.cs" />
-    <EmbeddedResource Include="SR.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SR.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <CodeAnalysisDictionary Include="FxcopCustomDictionary.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Migrated rules for StorageClient.ruleset" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="StorageClient\" />
+    <Folder Include="StorageClient\Protocol\" />
+    <Folder Include="StorageClient\Tasks\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StorageClient\SR.resx" />
+    <EmbeddedResource Include="CloudStorageAccount.cs">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
