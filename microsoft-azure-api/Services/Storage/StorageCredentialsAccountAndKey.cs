@@ -183,8 +183,9 @@ namespace Microsoft.WindowsAzure
         /// </returns>
         protected internal override string ToString(bool exportSecrets)
         {
+
             return String.Format(
-                "{0}={1};{2}={3}",
+                "{0}={1};{2}={3}", 
                 CloudStorageAccount.AccountNameName,
                 this.AccountName,
                 CloudStorageAccount.AccountKeyName,

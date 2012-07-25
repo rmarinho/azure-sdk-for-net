@@ -34,6 +34,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -179,6 +182,7 @@
     <Compile Include="StorageClient\Tasks\TaskAsyncResult.cs" />
     <Compile Include="StorageClient\Tasks\TimeoutHelper.cs" />
     <Compile Include="StorageClient\Tasks\WebRequestExtensions.cs" />
+    <Compile Include="SR.Designer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -187,8 +191,10 @@
     <Folder Include="StorageClient\Tasks\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="StorageClient\SR.resx" />
     <EmbeddedResource Include="CloudStorageAccount.cs">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>
